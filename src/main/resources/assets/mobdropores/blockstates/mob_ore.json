@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "mob=zombie": {"model": "mobdropores:mob_ore_zombie"},
+    "mob=blaze": {"model": "mobdropores:mob_ore_blaze"},
+    "mob=creeper": {"model": "mobdropores:mob_ore_creeper"},
+    "mob=enderman": {"model": "mobdropores:mob_ore_enderman"},
+    "mob=ghast": {"model": "mobdropores:mob_ore_ghast"},
+    "mob=guardian": {"model": "mobdropores:mob_ore_guardian"},
+    "mob=skeleton": {"model": "mobdropores:mob_ore_skeleton"},
+    "mob=slime": {"model": "mobdropores:mob_ore_slime"},
+    "mob=spider": {"model": "mobdropores:mob_ore_spider"},
+    "mob=witch": {"model": "mobdropores:mob_ore_witch"},
+    "mob=wither": {"model": "mobdropores:mob_ore_wither"}
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent":"block/cube_all",
+  "textures": {
+    "all": "mobdropores:blocks/mob_ore_skeleton"
+  }
+}

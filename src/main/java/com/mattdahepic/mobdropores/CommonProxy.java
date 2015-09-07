@@ -8,7 +8,7 @@ public class CommonProxy {
     public void registerRenderers () {}
     public void registerBlocks () {
         MobDropOres.mob_ore = new BlockMobOre();
-        MobDropOres.item_mob_ore = new ItemBlockMobOre();
-        GameRegistry.registerBlock(MobDropOres.mob_ore,ItemBlockMobOre.class,MobDropOres.NAME);
+        MobDropOres.item_mob_ore = new ItemBlockMobOre(MobDropOres.mob_ore);
+        GameRegistry.registerBlock(MobDropOres.mob_ore,ItemBlockMobOre.class,BlockMobOre.NAME);
     }
 }
