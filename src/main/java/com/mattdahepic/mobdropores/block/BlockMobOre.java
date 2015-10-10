@@ -27,6 +27,7 @@ public class BlockMobOre extends Block {
         this.setUnlocalizedName(NAME);
         this.setCreativeTab(CreativeTabs.tabAllSearch);
         this.setDefaultState(this.blockState.getBaseState().withProperty(MOB, EnumMob.ZOMBIE));
+        this.setHardness(2.0F);
     }
     @Override
     public boolean canSilkHarvest (World world, BlockPos pos, IBlockState state, EntityPlayer breaker) {

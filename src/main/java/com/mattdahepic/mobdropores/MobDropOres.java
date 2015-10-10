@@ -1,7 +1,5 @@
 package com.mattdahepic.mobdropores;
 
-import com.mattdahepic.mobdropores.block.BlockMobOre;
-import com.mattdahepic.mobdropores.block.ItemBlockMobOre;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.Mod;
