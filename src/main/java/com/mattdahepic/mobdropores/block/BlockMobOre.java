@@ -31,7 +31,8 @@ public class BlockMobOre extends Block {
     }
     @Override
     public boolean canSilkHarvest (World world, BlockPos pos, IBlockState state, EntityPlayer breaker) {
-        return state.getValue(MOB) != EnumMob.WITHER;
+        System.out.println(state.getBlock());
+        return world.getBlockState(pos).getValue(MOB) != EnumMob.WITHER;
     }
     @Override
     public int getExpDrop(IBlockAccess world, BlockPos pos, int fortune) {
