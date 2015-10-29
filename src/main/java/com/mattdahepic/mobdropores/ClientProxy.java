@@ -8,6 +8,7 @@ import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -24,7 +25,7 @@ public class ClientProxy extends CommonProxy {
         }
     }
     public void reg (Item item,int meta,String modid,String texture_name,String modifier) {
-        //ModelBakery.addVariantName(item,modid+":"+texture_name);
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item,meta,new ModelResourceLocation(modid+":"+texture_name,modifier));
+        //Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item,meta,new ModelResourceLocation(modid+":"+texture_name,modifier));
+        ModelLoader.setCustomModelResourceLocation(item,meta,new ModelResourceLocation(modid+":"+texture_name,modifier));
     }
 }
