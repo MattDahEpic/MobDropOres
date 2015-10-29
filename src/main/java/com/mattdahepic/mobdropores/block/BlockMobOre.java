@@ -48,10 +48,8 @@ public class BlockMobOre extends Block {
             ItemStack item = possible.getStack();
             float chance = possible.getChance();
             for (int i = 0; i < possible.getTries() + fortune; i++) { //and as many tries, including fortune
-                float random = rand.nextFloat();
-                System.out.println(random+"<="+chance+"?:"+(random <= chance));
-                if (random <= chance) {
-                    ret.add(item);
+                if (rand.nextFloat() <= chance) {
+                    ret.add(item.copy());
                 }
             }
         }

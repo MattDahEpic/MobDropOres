@@ -10,7 +10,7 @@ import java.util.Map;
 public enum EnumMob implements IStringSerializable {
     ZOMBIE("zombie",0,new ItemStackWithChance[]{new ItemStackWithChance(MobUtils.ROTTEN_FLESH,0.75F,2)}),
     BLAZE("blaze",1,new ItemStackWithChance[]{new ItemStackWithChance(MobUtils.BLAZE_ROD,0.5F,1)}),
-    CREEPER("creeper",2,new ItemStackWithChance[]{new ItemStackWithChance(MobUtils.GUNPOWDER,0.5F,2)}),
+    CREEPER("creeper",2,new ItemStackWithChance[]{new ItemStackWithChance(MobUtils.GUNPOWDER,0.75F,2)}),
     ENDERMAN("enderman",3,new ItemStackWithChance[]{new ItemStackWithChance(MobUtils.ENDER_PEARL,0.5F,1)}),
     GHAST("ghast",4,new ItemStackWithChance[]{new ItemStackWithChance(MobUtils.GHAST_TEAR,1.0F,1),new ItemStackWithChance(MobUtils.GUNPOWDER,0.5F,2)}),
     GUARDIAN("guardian",5,new ItemStackWithChance[]{new ItemStackWithChance(MobUtils.PRIS_CRYS,0.5F,1),new ItemStackWithChance(MobUtils.PRIS_SHARD,0.5F,2),new ItemStackWithChance(MobUtils.RAW_FISH,0.5F,1)}),
