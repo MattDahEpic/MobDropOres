@@ -53,8 +53,10 @@ public class WorldGenMobOre extends WorldGenerator {
                         pos = pos.west();
                         break;
                 }
-                if (world.getBlockState(pos).getBlock().isReplaceableOreGen(world,pos,target) && world.isBlockLoaded(pos)) {
-                    world.setBlockState(pos,block.getStateFromMeta(meta));
+                if (world.isBlockLoaded(pos)) {
+                    if (world.getBlockState(pos).getBlock().isReplaceableOreGen(world, pos, target)) {
+                        world.setBlockState(pos, block.getStateFromMeta(meta));
+                    }
                 }
             }
         }

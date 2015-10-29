@@ -35,6 +35,7 @@ public class MobDropOres {
     @Mod.EventHandler
     public static void init(FMLInitializationEvent e) {
         proxy.registerRenderers();
+        proxy.registerWorldGen();
     }
     @Mod.EventHandler
     public static void postInit(FMLPostInitializationEvent e) {}
