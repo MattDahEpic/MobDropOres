@@ -70,8 +70,8 @@ public class BlockMobOre extends Block {
     @Override
     @SideOnly(Side.CLIENT)
     public void getSubBlocks (Item item, CreativeTabs tab, List list) {
-        for (int i = 0; i < MOB.getAllowedValues().size(); i++) {
-            list.add(new ItemStack(item,1,i));
+        for (EnumMob mob : EnumMob.values()) {
+            list.add(new ItemStack(item,1,MobUtils.metaFromMob(mob)));
         }
     }
 }

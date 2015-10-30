@@ -13,6 +13,10 @@ public class ItemBlockMobOre extends ItemBlock {
         this.setHasSubtypes(true);
     }
     @Override
+    public int getMetadata(int damage) {
+        return damage;
+    }
+    @Override
     public String getUnlocalizedName (ItemStack stack) {
         return "tile.mobore."+MobUtils.mobFromMeta(stack.getMetadata()).getName();
     }
