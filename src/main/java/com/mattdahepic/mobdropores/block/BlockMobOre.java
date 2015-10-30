@@ -11,6 +11,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -66,6 +67,10 @@ public class BlockMobOre extends Block {
     @Override
     public int getMetaFromState (IBlockState state) {
         return MobUtils.metaFromMob((EnumMob) state.getValue(MOB));
+    }
+    @Override
+    public ItemStack getPickBlock (MovingObjectPosition target, World world, BlockPos pos, EntityPlayer player) {
+        return new ItemStack(this,1,MobUtils.metaFromMob(((EnumMob)world.getBlockState(pos).getValue(MOB))));
     }
     @Override
     @SideOnly(Side.CLIENT)

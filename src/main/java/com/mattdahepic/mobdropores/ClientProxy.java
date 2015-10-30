@@ -25,6 +25,7 @@ public class ClientProxy extends CommonProxy {
         }
     }
     public void reg (Item item,int meta,String modid,String texture_name,String modifier) {
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item,meta,new ModelResourceLocation(modid+":"+texture_name,modifier));
+        ModelLoader.setCustomModelResourceLocation(item,meta,new ModelResourceLocation(modid+":"+texture_name,modifier));
+        ModelBakery.addVariantName(item,modid+":"+texture_name);
     }
 }
