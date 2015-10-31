@@ -26,6 +26,8 @@ public class MobUtils {
     public static final ItemStack STICK = new ItemStack(Items.stick);
     public static final ItemStack SUGAR = new ItemStack(Items.sugar);
     public static final ItemStack STAR = new ItemStack(Items.nether_star);
+    public static final ItemStack COAL = new ItemStack(Items.coal);
+    public static final ItemStack WITHER_SKULL = new ItemStack(Items.skull,1,1);
 
     private static Map<Integer,EnumMob> META_TO_MOB = new HashMap<>();
     private static Map<EnumMob,Integer> MOB_TO_META = new HashMap<>();

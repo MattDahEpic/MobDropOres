@@ -5,7 +5,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
-import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
@@ -23,6 +22,7 @@ public class MobOreWorldGen implements IWorldGenerator {
     private WorldGenMobOre gen_spider;
     private WorldGenMobOre gen_witch;
     private WorldGenMobOre gen_wither;
+    private WorldGenMobOre gen_wither_skeleton;
     public MobOreWorldGen () {
         //WorldGenMobOre(EnumMob,targetBlock,veinSize,spawnChances,minHeight,maxHeight);
 
@@ -38,6 +38,7 @@ public class MobOreWorldGen implements IWorldGenerator {
         gen_spider = new WorldGenMobOre(EnumMob.SPIDER,Blocks.stone,5,4,0,64);
         gen_witch = new WorldGenMobOre(EnumMob.WITCH,Blocks.stone,3,5,0,64);
         gen_wither = new WorldGenMobOre(EnumMob.WITHER,Blocks.stone,1,1,0,10);
+        gen_wither_skeleton = new WorldGenMobOre(EnumMob.WITHER_SKELETON,Blocks.stone,1,2,0,32);
     }
     @Override
     public void generate (Random rand, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
@@ -52,6 +53,7 @@ public class MobOreWorldGen implements IWorldGenerator {
                 runGenerator(gen_spider,world,rand,chunkX,chunkZ,gen_spider.spawnChances,gen_spider.minHeight,gen_spider.maxHeight);
                 runGenerator(gen_witch,world,rand,chunkX,chunkZ,gen_witch.spawnChances,gen_witch.minHeight,gen_witch.maxHeight);
                 runGenerator(gen_wither,world,rand,chunkX,chunkZ,gen_wither.spawnChances,gen_wither.minHeight,gen_wither.maxHeight);
+                runGenerator(gen_wither_skeleton,world,rand,chunkX,chunkZ,gen_wither_skeleton.spawnChances,gen_wither_skeleton.minHeight,gen_wither_skeleton.maxHeight);
                 break;
             case -1: //nether
                 runGenerator(gen_blaze,world,rand,chunkX,chunkZ,gen_blaze.spawnChances,gen_blaze.minHeight,gen_blaze.maxHeight);

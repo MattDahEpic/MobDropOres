@@ -59,6 +59,11 @@
         "textures": {
           "all": "mobdropores:blocks/wither"
         }
+      },
+      "wither_skeleton": {
+        "textures": {
+          "all": "mobdropores:blocks/wither_skeleton"
+        }
       }
     }
   }

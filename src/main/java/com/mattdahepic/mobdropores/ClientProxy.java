@@ -16,9 +16,8 @@ public class ClientProxy extends CommonProxy {
         Item mob_ore = Item.getItemFromBlock(MobDropOres.mob_ore);
         String name_prefix = "mob_ore_";
         String modifier_prefix = "mob=";
-        for (int i = 0; i < EnumMob.values().length; i++) {
-            String mob_name = MobUtils.mobFromMeta(i).getName();
-            reg(mob_ore,i,MobDropOres.MODID,name_prefix+mob_name,modifier_prefix+mob_name);
+        for (EnumMob mob : EnumMob.values()) {
+            reg(mob_ore,MobUtils.metaFromMob(mob),MobDropOres.MODID,name_prefix+mob.getName(),modifier_prefix+mob.getName());
         }
     }
     public void reg (Item item,int meta,String modid,String texture_name,String modifier) {

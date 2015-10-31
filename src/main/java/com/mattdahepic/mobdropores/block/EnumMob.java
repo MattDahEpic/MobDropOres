@@ -1,11 +1,6 @@
 package com.mattdahepic.mobdropores.block;
 
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public enum EnumMob implements IStringSerializable {
     ZOMBIE("zombie",0,new ItemStackWithChance[]{new ItemStackWithChance(MobUtils.ROTTEN_FLESH,0.75F,2)}),
@@ -18,7 +13,8 @@ public enum EnumMob implements IStringSerializable {
     SLIME("slime",7,new ItemStackWithChance[]{new ItemStackWithChance(MobUtils.SLIME_BALL,0.5F,2)}),
     SPIDER("spider",8,new ItemStackWithChance[]{new ItemStackWithChance(MobUtils.STRING,0.5F,2),new ItemStackWithChance(MobUtils.SPIDER_EYE,0.5F,1)}),
     WITCH("witch",9,new ItemStackWithChance[]{new ItemStackWithChance(MobUtils.GLASS_BOTT,0.5F,1),new ItemStackWithChance(MobUtils.GLOW_DUST,0.5F,1),new ItemStackWithChance(MobUtils.GUNPOWDER,0.5F,1),new ItemStackWithChance(MobUtils.REDSTONE,0.5F,1),new ItemStackWithChance(MobUtils.SPIDER_EYE,0.5F,1),new ItemStackWithChance(MobUtils.STICK,0.5F,2),new ItemStackWithChance(MobUtils.SUGAR,0.5F,1)}),
-    WITHER("wither",10,new ItemStackWithChance[]{new ItemStackWithChance(MobUtils.STAR,0.01F,1)});
+    WITHER("wither",10,new ItemStackWithChance[]{new ItemStackWithChance(MobUtils.STAR,0.01F,1)}),
+    WITHER_SKELETON("wither_skeleton",11,new ItemStackWithChance[]{new ItemStackWithChance(MobUtils.BONE,0.5F,2),new ItemStackWithChance(MobUtils.COAL,0.5F,2),new ItemStackWithChance(MobUtils.WITHER_SKULL,0.1F,1)});
 
     private final String name;
     private final ItemStackWithChance[] drops;
