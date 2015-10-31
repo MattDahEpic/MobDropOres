@@ -1,15 +1,65 @@
 {
+  "forge_marker": 1,
+  "defaults": {
+    "model": "cube_all"
+  },
   "variants": {
-    "mob=zombie": {"model": "mobdropores:mob_ore_zombie"},
-    "mob=blaze": {"model": "mobdropores:mob_ore_blaze"},
-    "mob=creeper": {"model": "mobdropores:mob_ore_creeper"},
-    "mob=enderman": {"model": "mobdropores:mob_ore_enderman"},
-    "mob=ghast": {"model": "mobdropores:mob_ore_ghast"},
-    "mob=guardian": {"model": "mobdropores:mob_ore_guardian"},
-    "mob=skeleton": {"model": "mobdropores:mob_ore_skeleton"},
-    "mob=slime": {"model": "mobdropores:mob_ore_slime"},
-    "mob=spider": {"model": "mobdropores:mob_ore_spider"},
-    "mob=witch": {"model": "mobdropores:mob_ore_witch"},
-    "mob=wither": {"model": "mobdropores:mob_ore_wither"}
+    "mob": {
+      "zombie": {
+        "textures": {
+          "all": "mobdropores:blocks/zombie"
+        }
+      },
+      "blaze": {
+        "textures": {
+          "all": "mobdropores:blocks/blaze"
+        }
+      },
+      "creeper": {
+        "textures": {
+          "all": "mobdropores:blocks/creeper"
+        }
+      },
+      "enderman": {
+        "textures": {
+          "all": "mobdropores:blocks/enderman"
+        }
+      },
+      "ghast": {
+        "textures": {
+          "all": "mobdropores:blocks/ghast"
+        }
+      },
+      "guardian": {
+        "textures": {
+          "all": "mobdropores:blocks/guardian"
+        }
+      },
+      "skeleton": {
+        "textures": {
+          "all": "mobdropores:blocks/skeleton"
+        }
+      },
+      "slime": {
+        "textures": {
+          "all": "mobdropores:blocks/slime"
+        }
+      },
+      "spider": {
+        "textures": {
+          "all": "mobdropores:blocks/spider"
+        }
+      },
+      "witch": {
+        "textures": {
+          "all": "mobdropores:blocks/witch"
+        }
+      },
+      "wither": {
+        "textures": {
+          "all": "mobdropores:blocks/wither"
+        }
+      }
+    }
   }
 }
