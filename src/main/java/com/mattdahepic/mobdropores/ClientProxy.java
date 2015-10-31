@@ -2,12 +2,9 @@ package com.mattdahepic.mobdropores;
 
 import com.mattdahepic.mobdropores.block.EnumMob;
 import com.mattdahepic.mobdropores.block.MobUtils;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -25,7 +22,7 @@ public class ClientProxy extends CommonProxy {
         }
     }
     public void reg (Item item,int meta,String modid,String texture_name,String modifier) {
-        ModelLoader.setCustomModelResourceLocation(item,meta,new ModelResourceLocation(modid+":"+texture_name,modifier));
+        ModelLoader.setCustomModelResourceLocation(item,meta,new ModelResourceLocation(modid+":"+texture_name,"inventory"));
         ModelBakery.addVariantName(item,modid+":"+texture_name);
     }
 }
