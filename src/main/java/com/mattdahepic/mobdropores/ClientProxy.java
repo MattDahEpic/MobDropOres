@@ -2,7 +2,6 @@ package com.mattdahepic.mobdropores;
 
 import com.mattdahepic.mobdropores.block.EnumMob;
 import com.mattdahepic.mobdropores.block.MobUtils;
-import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
@@ -22,6 +21,6 @@ public class ClientProxy extends CommonProxy {
     }
     public void reg (Item item,int meta,String modid,String texture_name,String modifier) {
         ModelLoader.setCustomModelResourceLocation(item,meta,new ModelResourceLocation(modid+":"+texture_name,"inventory"));
-        ModelBakery.addVariantName(item,modid+":"+texture_name);
+        ModelLoader.addVariantName(item,modid+":"+texture_name);
     }
 }
