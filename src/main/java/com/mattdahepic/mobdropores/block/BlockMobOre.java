@@ -1,6 +1,5 @@
 package com.mattdahepic.mobdropores.block;
 
-import com.mattdahepic.mobdropores.MobDropOres;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
@@ -43,7 +42,7 @@ public class BlockMobOre extends Block {
     @Override
     public List<ItemStack> getDrops (IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
         Random rand = new Random();
-        List<ItemStack> ret = new ArrayList<>();
+        List<ItemStack> ret = new ArrayList<ItemStack>();
         ItemStackWithChance[] possiblities = ((EnumMob) state.getValue(MOB)).getDrops();
         for (ItemStackWithChance possible : possiblities) { //for all item types
             ItemStack item = possible.getStack();

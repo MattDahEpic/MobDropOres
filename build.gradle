@@ -18,7 +18,7 @@ group= "com.mattdahepic.mobdropores" // http://maven.apache.org/guides/mini/guid
 archivesBaseName = "mobdropores"
 
 minecraft {
-    version = "1.8-11.14.3.1545"
+    version = "1.8-11.14.3.1512"
     runDir = "run"
 
     replace "@VERSION@", project.version

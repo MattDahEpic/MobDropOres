@@ -1,9 +1,9 @@
 package com.mattdahepic.mobdropores.block;
 
+import com.google.common.collect.Maps;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class MobUtils {
@@ -29,8 +29,8 @@ public class MobUtils {
     public static final ItemStack COAL = new ItemStack(Items.coal);
     public static final ItemStack WITHER_SKULL = new ItemStack(Items.skull,1,1);
 
-    private static Map<Integer,EnumMob> META_TO_MOB = new HashMap<>();
-    private static Map<EnumMob,Integer> MOB_TO_META = new HashMap<>();
+    private static Map<Integer,EnumMob> META_TO_MOB = Maps.newHashMap();
+    private static Map<EnumMob,Integer> MOB_TO_META = Maps.newHashMap();
 
     public static int metaFromMob (EnumMob mob) {
         return MOB_TO_META.get(mob);
