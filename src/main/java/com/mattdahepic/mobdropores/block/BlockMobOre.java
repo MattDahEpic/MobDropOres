@@ -32,8 +32,17 @@ public class BlockMobOre extends Block {
     }
     @Override
     public boolean canSilkHarvest (World world, BlockPos pos, IBlockState state, EntityPlayer breaker) {
-        //return state.getValue(MOB) != state.withProperty(MOB,EnumMob.WITHER);
+        //return state.getValue(MOB) != state.withProperty(MOB,EnumMob.WITHER); //TODO: check for forge fix on this shit
         return false;
+    }
+    @Override
+    public int getHarvestLevel (IBlockState state) {
+        //0=wood,gold;1=stone;2=iron;3=diamond
+        return ((EnumMob)state.getValue(MOB)).getHarvestLevel();
+    }
+    @Override
+    public String getHarvestTool (IBlockState state) {
+        return "pickaxe";
     }
     @Override
     public int getExpDrop(IBlockAccess world, BlockPos pos, int fortune) {
