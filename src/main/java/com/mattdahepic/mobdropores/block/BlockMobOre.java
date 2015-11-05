@@ -46,7 +46,7 @@ public class BlockMobOre extends Block {
     }
     @Override
     public int getExpDrop(IBlockAccess world, BlockPos pos, int fortune) {
-        return fortune+1;
+        return ((EnumMob)world.getBlockState(pos).getValue(MOB)).getHarvestLevel()+fortune;
     }
     @Override
     public List<ItemStack> getDrops (IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
