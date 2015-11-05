@@ -12,6 +12,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ClientProxy extends CommonProxy {
     @Override
     public void registerRenderers () {
+        MobDropOres.logger.info("Registering Textures");
         Item mob_ore = Item.getItemFromBlock(MobDropOres.mob_ore);
         String name_prefix = "mob_ore_";
         String modifier_prefix = "mob=";

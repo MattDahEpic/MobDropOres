@@ -1,6 +1,7 @@
 package com.mattdahepic.mobdropores.world;
 
 import com.mattdahepic.mobdropores.block.EnumMob;
+import com.mattdahepic.mobdropores.config.Config;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
@@ -25,20 +26,18 @@ public class MobOreWorldGen implements IWorldGenerator {
     private WorldGenMobOre gen_wither_skeleton;
     public MobOreWorldGen () {
         //WorldGenMobOre(EnumMob,targetBlock,veinSize,spawnChances,minHeight,maxHeight);
-
-        //TODO: make things config based
-        gen_zombie = new WorldGenMobOre(EnumMob.ZOMBIE, Blocks.stone,6,16,0,64);
-        gen_blaze = new WorldGenMobOre(EnumMob.BLAZE,Blocks.netherrack,4,2,0,128);
-        gen_creeper = new WorldGenMobOre(EnumMob.CREEPER,Blocks.stone,5,8,0,64);
-        gen_enderman = new WorldGenMobOre(EnumMob.ENDERMAN,Blocks.stone,3,4,0,75);
-        gen_ghast = new WorldGenMobOre(EnumMob.GHAST,Blocks.netherrack,3,3,0,128);
-        gen_guardian = new WorldGenMobOre(EnumMob.GUARDIAN,Blocks.stone,4,3,0,64);
-        gen_skeleton = new WorldGenMobOre(EnumMob.SKELETON,Blocks.stone,6,6,0,64);
-        gen_slime = new WorldGenMobOre(EnumMob.SLIME,Blocks.stone,4,6,16,24);
-        gen_spider = new WorldGenMobOre(EnumMob.SPIDER,Blocks.stone,5,4,0,64);
-        gen_witch = new WorldGenMobOre(EnumMob.WITCH,Blocks.stone,3,5,0,64);
-        gen_wither = new WorldGenMobOre(EnumMob.WITHER,Blocks.stone,1,1,0,10);
-        gen_wither_skeleton = new WorldGenMobOre(EnumMob.WITHER_SKELETON,Blocks.stone,1,2,0,32);
+        gen_zombie = new WorldGenMobOre(EnumMob.ZOMBIE, Blocks.stone,Config.zombie.maxVeinSize,Config.zombie.spawnChances,Config.zombie.minY,Config.zombie.maxY);
+        gen_blaze = new WorldGenMobOre(EnumMob.BLAZE,Blocks.netherrack,Config.blaze.maxVeinSize,Config.blaze.spawnChances,Config.blaze.minY,Config.blaze.maxY);
+        gen_creeper = new WorldGenMobOre(EnumMob.CREEPER,Blocks.stone,Config.creeper.maxVeinSize,Config.creeper.spawnChances,Config.creeper.minY,Config.creeper.maxY);
+        gen_enderman = new WorldGenMobOre(EnumMob.ENDERMAN,Blocks.stone,Config.enderman.maxVeinSize,Config.enderman.spawnChances,Config.enderman.minY,Config.enderman.maxY);
+        gen_ghast = new WorldGenMobOre(EnumMob.GHAST,Blocks.netherrack,Config.ghast.maxVeinSize,Config.ghast.spawnChances,Config.ghast.minY,Config.ghast.maxY);
+        gen_guardian = new WorldGenMobOre(EnumMob.GUARDIAN,Blocks.stone,Config.guardian.maxVeinSize,Config.guardian.spawnChances,Config.guardian.minY,Config.guardian.maxY);
+        gen_skeleton = new WorldGenMobOre(EnumMob.SKELETON,Blocks.stone,Config.skeleton.maxVeinSize,Config.skeleton.spawnChances,Config.skeleton.minY,Config.skeleton.maxY);
+        gen_slime = new WorldGenMobOre(EnumMob.SLIME,Blocks.stone,Config.slime.maxVeinSize,Config.slime.spawnChances,Config.slime.minY,Config.slime.maxY);
+        gen_spider = new WorldGenMobOre(EnumMob.SPIDER,Blocks.stone,Config.spider.maxVeinSize,Config.spider.spawnChances,Config.spider.minY,Config.spider.maxY);
+        gen_witch = new WorldGenMobOre(EnumMob.WITCH,Blocks.stone,Config.witch.maxVeinSize,Config.witch.spawnChances,Config.witch.minY,Config.witch.maxY);
+        gen_wither = new WorldGenMobOre(EnumMob.WITHER,Blocks.stone,Config.wither.maxVeinSize,Config.wither.spawnChances,Config.wither.minY,Config.wither.maxY);
+        gen_wither_skeleton = new WorldGenMobOre(EnumMob.WITHER_SKELETON,Blocks.stone,Config.wither_skeleton.maxVeinSize,Config.wither_skeleton.spawnChances,Config.wither_skeleton.minY,Config.wither_skeleton.maxY);
     }
     @Override
     public void generate (Random rand, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {

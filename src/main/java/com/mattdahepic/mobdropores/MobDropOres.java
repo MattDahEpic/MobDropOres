@@ -1,9 +1,11 @@
 package com.mattdahepic.mobdropores;
 
 import com.mattdahepic.mdecore.update.UpdateChecker;
+import com.mattdahepic.mobdropores.config.Config;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -27,6 +29,7 @@ public class MobDropOres {
     public static final String COMMON_PROXY = "com.mattdahepic.mobdropores.CommonProxy";
 
     public static Logger logger;
+    public static Configuration configFile;
 
     public static Block mob_ore;
     public static Item item_mob_ore;
@@ -41,17 +44,14 @@ public class MobDropOres {
     public static void preInit(FMLPreInitializationEvent e) {
         logger = e.getModLog();
         FMLCommonHandler.instance().bus().register(instance);
+        Config.load(e);
         proxy.registerBlocks();
-        logger.info("Registering Blocks");
         proxy.registerOreDict();
-        logger.info("Registering Ore Dictionary Entries");
         proxy.registerRenderers();
-        logger.info("Registering Textures (if on client)");
     }
     @Mod.EventHandler
     public static void init(FMLInitializationEvent e) {
         proxy.registerWorldGen();
-        logger.info("Registering World Generator");
     }
     @Mod.EventHandler
     public static void postInit(FMLPostInitializationEvent e) {}
