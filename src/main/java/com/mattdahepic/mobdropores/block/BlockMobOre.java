@@ -32,7 +32,7 @@ public class BlockMobOre extends Block {
     }
     @Override
     public boolean canSilkHarvest (World world, BlockPos pos, IBlockState state, EntityPlayer breaker) {
-        //return state.getValue(MOB) != state.withProperty(MOB,EnumMob.WITHER); //TODO: check for forge fix on this shit
+        //return state.getValue(MOB) != state.withProperty(MOB,EnumMob.WITHER); //TODO: check for forge fix on this, issue #2223
         return false;
     }
     @Override

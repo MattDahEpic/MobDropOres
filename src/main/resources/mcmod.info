@@ -2,7 +2,7 @@
 {
   "modid": "mobdropores",
   "name": "Mob Drop Ores",
-  "description": "An alternitive to killing mobs, by killing the ground instead.",
+  "description": "An alternative to killing mobs, by killing the ground instead.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",

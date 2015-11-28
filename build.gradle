@@ -7,18 +7,16 @@ buildscript {
             url = "http://files.minecraftforge.net/maven"
         }
     }
-    dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.0-SNAPSHOT'
-    }
+    dependencies.classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-version = "1.8-2.0"
-group= "com.mattdahepic.mobdropores" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+version = "1.8.8-2.0"
+group = "com.mattdahepic.mobdropores" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "mobdropores"
 
 minecraft {
-    version = "1.8-11.14.3.1512"
+    version = "1.8.8-11.14.4.1576-1.8.8"
     runDir = "run"
 
     replace "@VERSION@", project.version
@@ -27,10 +25,10 @@ minecraft {
     // the mappings can be changed at any time, and must be in the following format.
     // snapshot_YYYYMMDD   snapshot are built nightly.
     // stable_#            stables are built at the discretion of the MCP team.
-    // Use non-default mappings at your own risk. they may not allways work.
+    // Use non-default mappings at your own risk. they may not always work.
     // simply re-run your setup task after changing the mappings to update your workspace.
-    mappings = "snapshot_20141130"
-    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
+    mappings = "snapshot_20151123"
+    //makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
 
 dependencies {
@@ -38,7 +36,7 @@ dependencies {
     // or you may define them like so..
     //compile "some.group:artifact:version:classifier"
     //compile "some.group:artifact:version"
-      
+
     // real examples
     //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
     //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
@@ -57,8 +55,7 @@ dependencies {
 
 }
 
-processResources
-{
+processResources {
     // this will ensure that this task is redone when the versions change.
     inputs.property "version", project.version
     inputs.property "mcversion", project.minecraft.version
@@ -66,16 +63,17 @@ processResources
     // replace stuff in mcmod.info, nothing else
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
-                
+
         // replace version and mcversion
         expand 'version':project.version, 'mcversion':project.minecraft.version
     }
-        
+
     // copy everything else, thats not the mcmod.info
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
 }
+
 task devJar(type: Jar) {
     from sourceSets.main.output
     classifier = 'dev'
@@ -84,9 +82,6 @@ task devJar(type: Jar) {
 artifacts {
     archives devJar
 }
+
 apply plugin: 'idea'
-idea {
-    module {
-        inheritOutputDirs = true
-    }
-}
+idea.module.inheritOutputDirs = true;
