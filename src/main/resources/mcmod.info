@@ -2,13 +2,13 @@
 {
   "modid": "mobdropores",
   "name": "Mob Drop Ores",
-  "description": "An alternitive to killing mobs, by killing the ground instead.",
-  "version": "${version}",
+  "description": "Adds ores to the world that drop mob drops.",
+  "version": "mc1.7.10-v1.1",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
   "authorList": ["MattDahEpic"],
-  "credits": "texture people for textures",
+  "credits": "me.",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

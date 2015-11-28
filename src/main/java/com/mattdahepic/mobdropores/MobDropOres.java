@@ -1,66 +1,59 @@
 package com.mattdahepic.mobdropores;
 
-import com.mattdahepic.mdecore.update.UpdateChecker;
+import com.mattdahepic.mobdropores.blocks.ores.*;
 import com.mattdahepic.mobdropores.config.Config;
+import com.mattdahepic.mobdropores.utils.LogHelper;
+import com.mattdahepic.mobdropores.world.MobDropOresGenerator;
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.fml.common.FMLCommonHandler;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLLoadCompleteEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.PlayerEvent;
-import org.apache.logging.log4j.Logger;
 
-@Mod(name = MobDropOres.NAME,modid = MobDropOres.MODID,version = MobDropOres.VERSION,dependencies = MobDropOres.DEPENDENCIES)
+@Mod(modid = MobDropOres.MODID,name = MobDropOres.NAME,version = MobDropOres.VERSION)
 public class MobDropOres {
-
-    public static final String NAME = "Mob Drop Ores";
-    public static final String VERSION = "@VERSION@";
-    public static final String MODID = "mobdropores";
-    public static final String DEPENDENCIES = "required-after:mdecore@[1.8-1.3,);";
-    public static final String UPDATE_URL = "https://raw.githubusercontent.com/MattDahEpic/Version/master/"+MinecraftForge.MC_VERSION+"/"+MODID+".txt";
-    public static final String CLIENT_PROXY = "com.mattdahepic.mobdropores.ClientProxy";
-    public static final String COMMON_PROXY = "com.mattdahepic.mobdropores.CommonProxy";
-
-    public static Logger logger;
-    public static Configuration configFile;
-
-    public static Block mob_ore;
-    public static Item item_mob_ore;
-
-    @Mod.Instance(MobDropOres.MODID)
+    @Mod.Instance("mobdropores")
     public static MobDropOres instance;
 
-    @SidedProxy(serverSide = MobDropOres.COMMON_PROXY,clientSide = MobDropOres.CLIENT_PROXY)
+    public static final String MODID = "mobdropores";
+    public static final String NAME = "Mob Drop Ores";
+    public static final String VERSION = "mc1.7.10-v1.1";
+
+    @SidedProxy(clientSide = "com.mattdahepic.mobdropores.client.ClientProxy",serverSide = "com.mattdahepic.mobdropores.CommonProxy")
     public static CommonProxy proxy;
 
+    public static Configuration configFile;
+
+    //blocks
+    public static Block oreRottenFlesh = new OreRottenFlesh();
+    public static Block oreGunpowder = new OreGunpowder();
+    public static Block oreEnderpearl = new OreEnderpearl();
+    public static Block oreBlazeRod = new OreBlazeRod();
+    public static Block oreString = new OreString();
+    public static Block oreSpiderEye = new OreSpiderEye();
+    public static Block oreGhastTear = new OreGhastTear();
+    public static Block oreArrow = new OreArrow();
+    public static Block oreBone = new OreBone();
+    public static Block oreSlimeball = new OreSlimeball();
+    public static Block oreNetherStar = new OreNetherStar();
+    //items
+
     @Mod.EventHandler
-    public static void preInit(FMLPreInitializationEvent e) {
-        logger = e.getModLog();
-        FMLCommonHandler.instance().bus().register(instance);
-        Config.load(e);
-        proxy.registerBlocks();
+    public static void preInit (FMLPreInitializationEvent event) {
+        Config.load(event);
+    }
+    @Mod.EventHandler
+    public static void init (FMLInitializationEvent event) {
+        //proxy.registerRenderers();
+        proxy.registerBlocksItems();
         proxy.registerOreDict();
-        proxy.registerRenderers();
+        GameRegistry.registerWorldGenerator(new MobDropOresGenerator(),0);
     }
     @Mod.EventHandler
-    public static void init(FMLInitializationEvent e) {
-        proxy.registerWorldGen();
-    }
-    @Mod.EventHandler
-    public static void postInit(FMLPostInitializationEvent e) {}
-    @Mod.EventHandler
-    public static void loadComplete (FMLLoadCompleteEvent e) {
-        UpdateChecker.updateCheck(MODID, NAME, UPDATE_URL, VERSION, null);
-    }
-    @SubscribeEvent
-    public void onPlayerJoinServer (PlayerEvent.PlayerLoggedInEvent e) {
-        UpdateChecker.updateCheck(MODID, NAME, UPDATE_URL, VERSION, e.player);
+    public static void postInit (FMLPostInitializationEvent event) {
+        LogHelper.info("Ready to supplement your killing sprees!");
     }
 }
