@@ -1,10 +1,13 @@
 package com.mattdahepic.mobdropores.blocks;
 
-import com.mattdahepic.mobdropores.config.Config;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.MathHelper;
+import net.minecraft.world.World;
 
 import java.util.Random;
 
@@ -17,23 +20,16 @@ public class MobOre extends Block {
         this.setHardness(3.0F);
     }
     @Override
-    protected boolean canSilkHarvest() {
+    public boolean canSilkHarvest(World world, BlockPos pos, IBlockState state, EntityPlayer player) {
         return true;
     }
-    @Override
-    public int quantityDropped(Random random) {
-        if (Config.multipleDropsEnabled) {
-            return 1 + random.nextInt(Config.maximumDropsNoFortune);
+    public int getAmountDrops (Random rand,int maxBase,int maxBonus,int fortuneLevel) {
+        int ret = 0;
+        if (fortuneLevel > 0) {
+            ret = (rand.nextInt(maxBase)+1)+(rand.nextInt(maxBonus*fortuneLevel));
         } else {
-            return 1;
+            ret = (rand.nextInt(maxBase)+1);
         }
-    }
-    @Override
-    public int quantityDroppedWithBonus(int fortune,Random random) {
-        if (Config.multipleDropsEnabled) {
-            return MathHelper.clamp_int(quantityDropped(random) + random.nextInt(Config.maximumDropsPerFortuneLevel), 0, Integer.MAX_VALUE);
-        } else {
-            return 1;
-        }
+        return MathHelper.clamp_int(ret, 0, 64);
     }
 }

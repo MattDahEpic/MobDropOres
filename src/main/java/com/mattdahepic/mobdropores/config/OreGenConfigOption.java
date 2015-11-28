@@ -1,6 +1,8 @@
 package com.mattdahepic.mobdropores.config;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.MathHelper;
 import net.minecraftforge.common.config.Configuration;
 
@@ -27,10 +29,10 @@ public class OreGenConfigOption {
     public int minY = 0;
     public int maxY = 128;
     public int rarity = 1;
-    public Block block;
+    public IBlockState block;
 
     public OreGenConfigOption (Block ore) {
-        this.block = ore;
+        this.block = ore.getDefaultState();
     }
     public OreGenConfigOption loadValue (Configuration config, String category) {
         enabled = config.get(category,"Enabled",enabled,COMMENT_ENABLED).getBoolean();

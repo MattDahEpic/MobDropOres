@@ -4,14 +4,14 @@ import com.mattdahepic.mobdropores.blocks.ores.*;
 import com.mattdahepic.mobdropores.config.Config;
 import com.mattdahepic.mobdropores.utils.LogHelper;
 import com.mattdahepic.mobdropores.world.MobDropOresGenerator;
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @Mod(modid = MobDropOres.MODID,name = MobDropOres.NAME,version = MobDropOres.VERSION)
 public class MobDropOres {
@@ -20,26 +20,26 @@ public class MobDropOres {
 
     public static final String MODID = "mobdropores";
     public static final String NAME = "Mob Drop Ores";
-    public static final String VERSION = "mc1.7.10-v1.1";
+    public static final String VERSION = "mc1.8-v2.0";
 
     @SidedProxy(clientSide = "com.mattdahepic.mobdropores.client.ClientProxy",serverSide = "com.mattdahepic.mobdropores.CommonProxy")
     public static CommonProxy proxy;
 
     public static Configuration configFile;
 
-    //blocks
-    public static Block oreRottenFlesh = new OreRottenFlesh();
-    public static Block oreGunpowder = new OreGunpowder();
-    public static Block oreEnderpearl = new OreEnderpearl();
-    public static Block oreBlazeRod = new OreBlazeRod();
-    public static Block oreString = new OreString();
-    public static Block oreSpiderEye = new OreSpiderEye();
-    public static Block oreGhastTear = new OreGhastTear();
-    public static Block oreArrow = new OreArrow();
-    public static Block oreBone = new OreBone();
-    public static Block oreSlimeball = new OreSlimeball();
-    public static Block oreNetherStar = new OreNetherStar();
-    //items
+    //block
+    public static Block oreSkeleton = new OreSkeleton();
+    public static Block oreSpider = new OreSpider();
+    public static Block oreGuardian = new OreGuardian();
+    public static Block oreZombie = new OreZombie();
+    public static Block oreCreeper = new OreCreeper();
+    public static Block oreEnderman = new OreEnderman();
+    public static Block oreBlaze = new OreBlaze();
+    public static Block oreSlime = new OreSlime();
+    public static Block oreWither = new OreWither();
+    public static Block oreGhast = new OreGhast();
+    public static Block oreWitch = new OreWitch();
+    //item
 
     @Mod.EventHandler
     public static void preInit (FMLPreInitializationEvent event) {
@@ -47,9 +47,9 @@ public class MobDropOres {
     }
     @Mod.EventHandler
     public static void init (FMLInitializationEvent event) {
-        //proxy.registerRenderers();
         proxy.registerBlocksItems();
         proxy.registerOreDict();
+        proxy.registerRenderers();
         GameRegistry.registerWorldGenerator(new MobDropOresGenerator(),0);
     }
     @Mod.EventHandler

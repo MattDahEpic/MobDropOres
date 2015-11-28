@@ -1,0 +1,32 @@
+FIRST OFF: kill everything and remake it
+"Computer Programming: It did *exactly* what you told it to."
+
+general:
+    textures
+    blockstates
+    make everything under one block data
+    skulls maybe
++skeleton ore: arrow,bone,bow
+    bow damage
+    bow enchants: look at zombie armour spawning code for refrence
+    usless enchant control
++spider ore: string,spider eye
++guardian ore: prismarine shard, prismarine crystal
++zombie ore: rotten flesh
++creeper ore: gunpowder
++enderman ore: enderpearl
++blaze ore: blaze rod, blaze powder
++slime ore: slimeball
++nether star ore: nether star
+    +drop chance
+    +snarky console logs
++ghast ore: ghast tear
+    fire charge maybe
++witch ore: all the witch drops
+    potions
+peaceful mob ores:
+    sheep: wool, mutton
+    pig: raw pork
+    cow: raw beef, lether
+    squid: ink sack
+    chicken: egg, feather, raw chicken

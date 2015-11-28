@@ -1,7 +1,7 @@
 package com.mattdahepic.mobdropores.utils;
 
 import com.mattdahepic.mobdropores.MobDropOres;
-import cpw.mods.fml.common.FMLLog;
+import net.minecraftforge.fml.common.FMLLog;
 import org.apache.logging.log4j.Level;
 
 public class LogHelper {
