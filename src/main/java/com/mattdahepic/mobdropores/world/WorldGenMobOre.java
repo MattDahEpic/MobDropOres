@@ -3,19 +3,17 @@ package com.mattdahepic.mobdropores.world;
 import com.mattdahepic.mobdropores.MobDropOres;
 import com.mattdahepic.mobdropores.block.EnumMob;
 import com.mattdahepic.mobdropores.block.MobUtils;
-import net.minecraft.block.state.pattern.BlockHelper;
-import net.minecraft.util.BlockPos;
+import net.minecraft.block.Block;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import net.minecraft.block.Block;
 
 import java.util.Random;
-import com.google.common.base.Predicate;
 
 public class WorldGenMobOre extends WorldGenerator {
     private Block block = MobDropOres.mob_ore;
     private int meta;
-    private Predicate target;
+    private Block target;
     private int veinSize;
     int spawnChances;
     int minHeight;
@@ -23,7 +21,7 @@ public class WorldGenMobOre extends WorldGenerator {
 
     public WorldGenMobOre(EnumMob mob, Block target, int veinSize, int spawnChances, int minHeight, int maxHeight) {
         this.meta = MobUtils.metaFromMob(mob);
-        this.target = BlockHelper.forBlock(target);
+        this.target = target;
         this.veinSize = veinSize+1;
         this.spawnChances = spawnChances;
         this.minHeight = minHeight;
@@ -54,7 +52,7 @@ public class WorldGenMobOre extends WorldGenerator {
                         break;
                 }
                 if (world.isBlockLoaded(pos)) {
-                    if (world.getBlockState(pos).getBlock().isReplaceableOreGen(world, pos, target)) {
+                    if (world.getBlockState(pos).getBlock().equals(target)) {
                         world.setBlockState(pos, block.getStateFromMeta(meta));
                     }
                 }

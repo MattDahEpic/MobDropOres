@@ -3,14 +3,14 @@ package com.mattdahepic.mobdropores.block;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -24,9 +24,10 @@ public class BlockMobOre extends Block {
     public static final PropertyEnum MOB = PropertyEnum.create("mob",EnumMob.class);
     public static final String NAME = "mob_ore";
     public BlockMobOre () {
-        super(Material.rock);
+        super(Material.ROCK);
         this.setUnlocalizedName(NAME);
-        this.setCreativeTab(CreativeTabs.tabAllSearch);
+        this.setRegistryName(NAME);
+        this.setCreativeTab(CreativeTabs.SEARCH);
         this.setDefaultState(this.blockState.getBaseState().withProperty(MOB, EnumMob.ZOMBIE));
         this.setHardness(2.0F);
     }
@@ -37,7 +38,6 @@ public class BlockMobOre extends Block {
     }
     @Override
     public int getHarvestLevel (IBlockState state) {
-        //0=wood,gold;1=stone;2=iron;3=diamond
         return ((EnumMob)state.getValue(MOB)).getHarvestLevel();
     }
     @Override
@@ -45,7 +45,7 @@ public class BlockMobOre extends Block {
         return "pickaxe";
     }
     @Override
-    public int getExpDrop(IBlockAccess world, BlockPos pos, int fortune) {
+    public int getExpDrop (IBlockState state, IBlockAccess world, BlockPos pos, int fortune) {
         return ((EnumMob)world.getBlockState(pos).getValue(MOB)).getHarvestLevel()+fortune;
     }
     @Override
@@ -65,8 +65,8 @@ public class BlockMobOre extends Block {
         return ret;
     }
     @Override
-    public BlockState createBlockState () {
-        return new BlockState(this,MOB);
+    public BlockStateContainer createBlockState () {
+        return new BlockStateContainer(this,MOB);
     }
     @Override
     public IBlockState getStateFromMeta (int meta) {
@@ -77,7 +77,7 @@ public class BlockMobOre extends Block {
         return MobUtils.metaFromMob((EnumMob) state.getValue(MOB));
     }
     @Override
-    public ItemStack getPickBlock (MovingObjectPosition target, World world, BlockPos pos, EntityPlayer player) {
+    public ItemStack getPickBlock (IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
         return new ItemStack(this,1,MobUtils.metaFromMob(((EnumMob)world.getBlockState(pos).getValue(MOB))));
     }
     @Override

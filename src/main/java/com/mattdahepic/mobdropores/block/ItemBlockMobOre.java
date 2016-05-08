@@ -9,7 +9,8 @@ public class ItemBlockMobOre extends ItemBlock {
     public ItemBlockMobOre (Block block) {
         super(block);
         this.setUnlocalizedName(BlockMobOre.NAME);
-        this.setCreativeTab(CreativeTabs.tabAllSearch);
+        this.setRegistryName(BlockMobOre.NAME);
+        this.setCreativeTab(CreativeTabs.SEARCH);
         this.setHasSubtypes(true);
     }
     @Override
