@@ -97,9 +97,6 @@
           "all": "mobdropores:blocks/squid"
         }
       }
-    },
-    "inventory": {
-      "transform": "forge:default-block"
     }
   }
 }
