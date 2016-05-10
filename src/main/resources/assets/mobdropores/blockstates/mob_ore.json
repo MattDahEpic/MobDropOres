@@ -66,6 +66,36 @@
         "textures": {
           "all": "mobdropores:blocks/wither_skeleton"
         }
+      },
+      "chicken": {
+        "textures": {
+          "all": "mobdropores:blocks/chicken"
+        }
+      },
+      "cow": {
+        "textures": {
+          "all": "mobdropores:blocks/cow"
+        }
+      },
+      "pig": {
+        "textures": {
+          "all": "mobdropores:blocks/pig"
+        }
+      },
+      "sheep": {
+        "textures": {
+          "all": "mobdropores:blocks/sheep"
+        }
+      },
+      "rabbit": {
+        "textures": {
+          "all": "mobdropores:blocks/rabbit"
+        }
+      },
+      "squid": {
+        "textures": {
+          "all": "mobdropores:blocks/squid"
+        }
       }
     },
     "inventory": {

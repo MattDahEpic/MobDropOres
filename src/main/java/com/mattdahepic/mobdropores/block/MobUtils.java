@@ -1,6 +1,7 @@
 package com.mattdahepic.mobdropores.block;
 
 import com.google.common.collect.Maps;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
@@ -28,6 +29,18 @@ public class MobUtils {
     static final ItemStack STAR = new ItemStack(Items.NETHER_STAR);
     static final ItemStack COAL = new ItemStack(Items.COAL);
     static final ItemStack WITHER_SKULL = new ItemStack(Items.SKULL,1,1);
+
+    static final ItemStack RAW_CHICKEN = new ItemStack(Items.CHICKEN);
+    static final ItemStack FEATHER = new ItemStack(Items.FEATHER);
+    static final ItemStack LEATHER = new ItemStack(Items.LEATHER);
+    static final ItemStack RAW_BEEF = new ItemStack(Items.BEEF);
+    static final ItemStack RAW_PORKCHOP = new ItemStack(Items.PORKCHOP);
+    static final ItemStack WOOL = new ItemStack(Blocks.WOOL);
+    static final ItemStack RAW_MUTTON = new ItemStack(Items.MUTTON);
+    static final ItemStack RABBIT_HIDE = new ItemStack(Items.RABBIT_HIDE);
+    static final ItemStack RAW_RABBIT = new ItemStack(Items.RABBIT);
+    static final ItemStack RABBIT_FOOT = new ItemStack(Items.RABBIT_FOOT);
+    static final ItemStack INK_SAC = new ItemStack(Items.DYE,1,0);
 
     private static Map<Integer,EnumMob> META_TO_MOB = Maps.newHashMap();
     private static Map<EnumMob,Integer> MOB_TO_META = Maps.newHashMap();

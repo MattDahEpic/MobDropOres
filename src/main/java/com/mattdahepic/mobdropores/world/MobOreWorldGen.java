@@ -25,6 +25,12 @@ public class MobOreWorldGen implements IWorldGenerator {
     private WorldGenMobOre gen_witch;
     private WorldGenMobOre gen_wither;
     private WorldGenMobOre gen_wither_skeleton;
+    private WorldGenMobOre gen_chicken;
+    private WorldGenMobOre gen_cow;
+    private WorldGenMobOre gen_pig;
+    private WorldGenMobOre gen_sheep;
+    private WorldGenMobOre gen_rabbit;
+    private WorldGenMobOre gen_squid;
     public MobOreWorldGen () {
         //WorldGenMobOre(EnumMob,targetBlock,veinSize,spawnChances,minHeight,maxHeight);
         gen_zombie = new WorldGenMobOre(EnumMob.ZOMBIE, Blocks.STONE, MDOConfig.zombie_maxVeinSize,MDOConfig.zombie_spawnChances,MDOConfig.zombie_minY,MDOConfig.zombie_maxY);
@@ -39,6 +45,12 @@ public class MobOreWorldGen implements IWorldGenerator {
         gen_witch = new WorldGenMobOre(EnumMob.WITCH,Blocks.STONE, MDOConfig.witch_maxVeinSize, MDOConfig.witch_spawnChances, MDOConfig.witch_minY, MDOConfig.witch_maxY);
         gen_wither = new WorldGenMobOre(EnumMob.WITHER,Blocks.STONE, MDOConfig.wither_maxVeinSize, MDOConfig.wither_spawnChances, MDOConfig.wither_minY, MDOConfig.wither_maxY);
         gen_wither_skeleton = new WorldGenMobOre(EnumMob.WITHER_SKELETON,Blocks.STONE, MDOConfig.wither_skeleton_maxVeinSize, MDOConfig.wither_skeleton_spawnChances, MDOConfig.wither_skeleton_minY, MDOConfig.wither_skeleton_maxY);
+        gen_chicken = new WorldGenMobOre(EnumMob.CHICKEN,Blocks.STONE,MDOConfig.chicken_maxVeinSize,MDOConfig.chicken_spawnChances,MDOConfig.chicken_minY, MDOConfig.chicken_maxY);
+        gen_cow = new WorldGenMobOre(EnumMob.COW,Blocks.STONE,MDOConfig.cow_maxVeinSize,MDOConfig.cow_spawnChances,MDOConfig.cow_minY,MDOConfig.cow_maxY);
+        gen_pig = new WorldGenMobOre(EnumMob.PIG,Blocks.STONE,MDOConfig.pig_maxVeinSize,MDOConfig.pig_spawnChances, MDOConfig.pig_minY,MDOConfig.pig_maxY);
+        gen_sheep = new WorldGenMobOre(EnumMob.SHEEP,Blocks.STONE,MDOConfig.sheep_maxVeinSize,MDOConfig.sheep_spawnChances,MDOConfig.sheep_minY,MDOConfig.sheep_maxY);
+        gen_rabbit = new WorldGenMobOre(EnumMob.RABBIT,Blocks.STONE,MDOConfig.rabbit_maxVeinSize,MDOConfig.rabbit_spawnChances,MDOConfig.rabbit_minY,MDOConfig.rabbit_maxY);
+        gen_squid = new WorldGenMobOre(EnumMob.SQUID,Blocks.STONE,MDOConfig.squid_maxVeinSize,MDOConfig.squid_spawnChances,MDOConfig.squid_minY,MDOConfig.squid_maxY);
     }
     @Override
     public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
@@ -54,6 +66,12 @@ public class MobOreWorldGen implements IWorldGenerator {
                 runGenerator(gen_witch,world,rand,chunkX,chunkZ,gen_witch.spawnChances,gen_witch.minHeight,gen_witch.maxHeight);
                 runGenerator(gen_wither,world,rand,chunkX,chunkZ,gen_wither.spawnChances,gen_wither.minHeight,gen_wither.maxHeight);
                 runGenerator(gen_wither_skeleton,world,rand,chunkX,chunkZ,gen_wither_skeleton.spawnChances,gen_wither_skeleton.minHeight,gen_wither_skeleton.maxHeight);
+                runGenerator(gen_chicken,world,rand,chunkX,chunkZ,gen_chicken.spawnChances,gen_chicken.minHeight,gen_chicken.maxHeight);
+                runGenerator(gen_cow,world,rand,chunkX,chunkZ,gen_cow.spawnChances,gen_cow.minHeight,gen_cow.maxHeight);
+                runGenerator(gen_pig,world,rand,chunkX,chunkZ,gen_pig.spawnChances,gen_pig.minHeight,gen_pig.maxHeight);
+                runGenerator(gen_sheep,world,rand,chunkX,chunkZ,gen_sheep.spawnChances,gen_sheep.minHeight,gen_sheep.maxHeight);
+                runGenerator(gen_rabbit,world,rand,chunkX,chunkZ,gen_rabbit.spawnChances,gen_rabbit.minHeight,gen_rabbit.maxHeight);
+                runGenerator(gen_squid,world,rand,chunkX,chunkZ,gen_squid.spawnChances,gen_squid.minHeight,gen_squid.maxHeight);
                 break;
             case -1: //nether
                 runGenerator(gen_blaze,world,rand,chunkX,chunkZ,gen_blaze.spawnChances,gen_blaze.minHeight,gen_blaze.maxHeight);
