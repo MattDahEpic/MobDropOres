@@ -1,11 +1,8 @@
 package com.mattdahepic.mobdropores.block;
 
-import com.google.common.collect.Maps;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-
-import java.util.Map;
 
 public class MobUtils {
     static final ItemStack ROTTEN_FLESH = new ItemStack(Items.ROTTEN_FLESH);
@@ -41,18 +38,4 @@ public class MobUtils {
     static final ItemStack RAW_RABBIT = new ItemStack(Items.RABBIT);
     static final ItemStack RABBIT_FOOT = new ItemStack(Items.RABBIT_FOOT);
     static final ItemStack INK_SAC = new ItemStack(Items.DYE,1,0);
-
-    private static Map<Integer,EnumMob> META_TO_MOB = Maps.newHashMap();
-    private static Map<EnumMob,Integer> MOB_TO_META = Maps.newHashMap();
-
-    public static int metaFromMob (EnumMob mob) {
-        return MOB_TO_META.get(mob);
-    }
-    public static EnumMob mobFromMeta (int meta) {
-        return META_TO_MOB.get(meta);
-    }
-    static void setupMetaMaps (int meta, EnumMob mob) {
-        META_TO_MOB.put(meta, mob);
-        MOB_TO_META.put(mob, meta);
-    }
 }

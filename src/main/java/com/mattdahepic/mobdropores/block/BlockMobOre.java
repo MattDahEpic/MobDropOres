@@ -21,20 +21,23 @@ import java.util.List;
 import java.util.Random;
 
 public class BlockMobOre extends Block {
+    private final String unlocName;
     public static final PropertyEnum MOB = PropertyEnum.create("mob",EnumMob.class);
-    public static final String NAME = "mob_ore";
-    public BlockMobOre () {
+    public BlockMobOre (String name) {
         super(Material.ROCK);
-        this.setUnlocalizedName(NAME);
-        this.setRegistryName(NAME);
+        unlocName = name;
+        this.setRegistryName(name);
         this.setCreativeTab(CreativeTabs.SEARCH);
         this.setDefaultState(this.blockState.getBaseState().withProperty(MOB, EnumMob.ZOMBIE));
         this.setHardness(2.0F);
     }
     @Override
+    public String getUnlocalizedName () {
+        return this.unlocName;
+    }
+    @Override
     public boolean canSilkHarvest (World world, BlockPos pos, IBlockState state, EntityPlayer breaker) {
-        //return state.getValue(MOB) != state.withProperty(MOB,EnumMob.WITHER); //TODO: check for forge fix on this, issue #2223
-        return false;
+        return state.getValue(MOB) != state.withProperty(MOB,EnumMob.WITHER);
     }
     @Override
     public int getHarvestLevel (IBlockState state) {
@@ -69,22 +72,21 @@ public class BlockMobOre extends Block {
         return new BlockStateContainer(this,MOB);
     }
     @Override
-    public IBlockState getStateFromMeta (int meta) {
-        return this.getDefaultState().withProperty(MOB, MobUtils.mobFromMeta(meta));
-    }
-    @Override
     public int getMetaFromState (IBlockState state) {
-        return MobUtils.metaFromMob((EnumMob) state.getValue(MOB));
+        return ((EnumMob)state.getValue(MOB)).getMeta();
     }
     @Override
     public ItemStack getPickBlock (IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
-        return new ItemStack(this,1,MobUtils.metaFromMob(((EnumMob)world.getBlockState(pos).getValue(MOB))));
+        EnumMob mob = (EnumMob)state.getValue(MOB);
+        return new ItemStack(mob.getBlock(),1,mob.getMeta());
     }
     @Override
     @SideOnly(Side.CLIENT)
     public void getSubBlocks (Item item, CreativeTabs tab, List list) {
         for (EnumMob mob : EnumMob.values()) {
-            list.add(new ItemStack(item,1,MobUtils.metaFromMob(mob)));
+            if (item.equals(Item.getItemFromBlock(mob.getBlock()))) {
+                list.add(new ItemStack(item, 1, mob.getMeta()));
+            }
         }
     }
 }

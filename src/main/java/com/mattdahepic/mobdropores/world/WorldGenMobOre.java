@@ -1,8 +1,6 @@
 package com.mattdahepic.mobdropores.world;
 
-import com.mattdahepic.mobdropores.MobDropOres;
 import com.mattdahepic.mobdropores.block.EnumMob;
-import com.mattdahepic.mobdropores.block.MobUtils;
 import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -11,7 +9,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import java.util.Random;
 
 public class WorldGenMobOre extends WorldGenerator {
-    private Block block = MobDropOres.mob_ore;
+    private Block block;
     private int meta;
     private Block target;
     private int veinSize;
@@ -20,7 +18,8 @@ public class WorldGenMobOre extends WorldGenerator {
     int maxHeight;
 
     public WorldGenMobOre(EnumMob mob, Block target, int veinSize, int spawnChances, int minHeight, int maxHeight) {
-        this.meta = MobUtils.metaFromMob(mob);
+        this.block = mob.getBlock();
+        this.meta = mob.getMeta();
         this.target = target;
         this.veinSize = veinSize+1;
         this.spawnChances = spawnChances;
