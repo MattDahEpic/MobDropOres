@@ -13,7 +13,7 @@ public class CommonProxy {
     public void registerBlocks () {
         for (int i = 0; i <= Math.ceil(EnumMob.values().length / 16); i++) {
             String name = "mob_ore"+i;
-            MobDropOres.mob_ores.add(i,new BlockMobOre(name));
+            MobDropOres.mob_ores.add(i,new BlockMobOre(name,i));
             MobDropOres.item_mob_ores.add(i,new ItemBlockMobOre(MobDropOres.mob_ores.get(i)));
             GameRegistry.register(MobDropOres.mob_ores.get(i));
             GameRegistry.register(MobDropOres.item_mob_ores.get(i));

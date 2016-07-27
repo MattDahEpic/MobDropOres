@@ -8,6 +8,8 @@ public class MDOConfig extends ConfigSyncable {
     public String getConfigVersion () {return "1";}
     public String getConfigName () {return MobDropOres.MODID;}
     public Class getConfigClass () {return getClass();}
+    
+    @Config(comment = {"If this option is true all ores will always drop 1 of each of their drops.","BE CAREFUL, THIS WILL BREAK GAME BALANCE"}) public static boolean alwaysDropItems = false;
 
     @Config(cat = "zombie",comment = "The maximum size of a vein for zombie ore",range = @Config.Range(min = 0,max = 255)) public static int zombie_maxVeinSize = 6;
     @Config(cat = "zombie",comment = "How many veins of zombie ore to *try* and spawn per chunk",range = @Config.Range(min = 0,max = 255)) public static int zombie_spawnChances = 16;

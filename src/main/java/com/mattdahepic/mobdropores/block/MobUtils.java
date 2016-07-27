@@ -6,7 +6,7 @@ import net.minecraft.item.ItemStack;
 
 public class MobUtils {
     static final ItemStack ROTTEN_FLESH = new ItemStack(Items.ROTTEN_FLESH);
-    static final ItemStack STRING = new ItemStack(Items.ROTTEN_FLESH);
+    static final ItemStack STRING = new ItemStack(Items.STRING);
     static final ItemStack GUNPOWDER = new ItemStack(Items.GUNPOWDER);
     static final ItemStack BLAZE_ROD = new ItemStack(Items.BLAZE_ROD);
     static final ItemStack ENDER_PEARL = new ItemStack(Items.ENDER_PEARL);

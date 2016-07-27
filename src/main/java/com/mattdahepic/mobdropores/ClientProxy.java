@@ -21,7 +21,7 @@ public class ClientProxy extends CommonProxy {
             ModelLoader.setCustomStateMapper(mob.getBlock(), new StateMapperBase() {
                 @Override
                 protected ModelResourceLocation getModelResourceLocation(IBlockState state) {
-                    return new ModelResourceLocation("mobdropores:mob_ore",modifier_prefix+((EnumMob)state.getValue(BlockMobOre.MOB)).getName());
+                    return new ModelResourceLocation("mobdropores:mob_ore",modifier_prefix+((EnumMob)state.getValue(((BlockMobOre)state.getBlock()).MOB)).getName());
                 }
             });
         }
