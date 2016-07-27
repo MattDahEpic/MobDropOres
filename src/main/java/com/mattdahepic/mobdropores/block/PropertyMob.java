@@ -7,10 +7,12 @@ import java.util.HashSet;
 
 
 public class PropertyMob extends PropertyEnum<EnumMob> {
+    private static int totalStates = 0;
     private final int block;
-    public PropertyMob (int blockNum) {
-        super("mob",EnumMob.class,getAllowedValuesForBlock(blockNum));
-        block = blockNum;
+    public PropertyMob () {
+        super("mob",EnumMob.class,getAllowedValuesForBlock(totalStates));
+        block = totalStates;
+        totalStates++;
     }
     private static Collection<EnumMob> getAllowedValuesForBlock (int blockNum) {
         Collection ret = new HashSet();

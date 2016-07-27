@@ -25,14 +25,13 @@ import java.util.Random;
 
 public class BlockMobOre extends Block {
     private final String unlocName;
-    public final PropertyEnum MOB;
+    public PropertyEnum MOB;
     public BlockMobOre (String name, int blockNum) {
         super(Material.ROCK);
-        MOB = new PropertyMob(blockNum);
         unlocName = name;
         this.setRegistryName(name);
         this.setCreativeTab(CreativeTabs.SEARCH);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(MOB, EnumMob.ZOMBIE));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(MOB, EnumMob.META_TO_MOB.get(blockNum*16)));
         this.setHardness(2.0F);
     }
     @Override
@@ -77,6 +76,7 @@ public class BlockMobOre extends Block {
     }
     @Override
     public BlockStateContainer createBlockState () {
+        if (MOB == null) MOB = new PropertyMob();
         return new BlockStateContainer(this,MOB);
     }
     @Override

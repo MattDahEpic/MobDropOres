@@ -20,6 +20,6 @@ public class ItemBlockMobOre extends ItemBlock {
     }
     @Override
     public String getUnlocalizedName (ItemStack stack) {
-        return "tile.mobore."+EnumMob.META_TO_MOB.get((MobDropOres.item_mob_ores.indexOf(stack.getItem())*16)+stack.getMetadata()).getName();
+        return "tile.mobore."+ EnumMob.META_TO_MOB.get((MobDropOres.item_mob_ores.indexOf(stack.getItem())*16)+stack.getMetadata()).getName();
     }
 }
