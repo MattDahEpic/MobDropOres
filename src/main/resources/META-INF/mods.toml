@@ -1,0 +1,35 @@
+modLoader="javafml"
+loaderVersion="[34,)"
+license="All rights reserved"
+issueTrackerURL="https://github.com/MattDahEpic/MobDropOres/issues"
+
+[[mods]]
+    modId="mobdropores"
+    version="${file.jarVersion}"
+    displayName="Mob Drop Ores"
+    updateJSONURL="https://raw.githubusercontent.com/MattDahEpic/Version/master/mobdropores.json"
+    displayURL="https://www.curseforge.com/minecraft/mc-mods/mob-drop-ores"
+    credits="Thanks to my texture artists."
+    authors="MattDahEpic"
+    description='''
+    An alternative to killing mobs, by killing the ground instead.
+    '''
+
+    [[dependencies.mobdropores]]
+        modId="forge"
+        mandatory=true
+        versionRange="[34,)"
+        ordering="NONE"
+        side="BOTH"
+    [[dependencies.mobdropores]]
+        modId="minecraft"
+        mandatory=true
+        versionRange="[1.16.3]"
+        ordering="NONE"
+        side="BOTH"
+    [[dependencies.mobdropores]]
+        modId="mdecore"
+        mandatory=true
+        versionRange="[16.0.2,)"
+        ordering="NONE"
+        side="BOTH"

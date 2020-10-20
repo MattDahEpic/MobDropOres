@@ -1,0 +1,20 @@
+{
+  "block.mobdropores.zombie_ore": "Zombie Ore",
+  "block.mobdropores.blaze_ore": "Blaze Ore",
+  "block.mobdropores.creeper_ore": "Creeper Ore",
+  "block.mobdropores.enderman_ore": "Enderman Ore",
+  "block.mobdropores.ghast_ore": "Ghast Ore",
+  "block.mobdropores.guardian_ore": "Guardian Ore",
+  "block.mobdropores.skeleton_ore": "Skeleton Ore",
+  "block.mobdropores.slime_ore": "Slime Ore",
+  "block.mobdropores.spider_ore": "Spider Ore",
+  "block.mobdropores.witch_ore": "Witch Ore",
+  "block.mobdropores.wither_ore": "Wither Ore",
+  "block.mobdropores.wither_skeleton_ore": "Wither Skeleton Ore",
+  "block.mobdropores.chicken_ore": "Chicken Ore",
+  "block.mobdropores.cow_ore": "Cow Ore",
+  "block.mobdropores.pig_ore": "Pig Ore",
+  "block.mobdropores.sheep_ore": "Sheep Ore",
+  "block.mobdropores.rabbit_ore": "Rabbit Ore",
+  "block.mobdropores.squid_ore": "Squid Ore"
+}
